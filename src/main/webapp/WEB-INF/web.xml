@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+   <!-- General description of your web application -->
+   <display-name>org.syfsyf.search - Webapp</display-name>
+      <description>
+         Describe the org.syfsyf.search Webapp here.
+         d@example.com
+
+         See http://tomcat.apache.org/tomcat-6.0-doc/appdev/web.xml.txt for more information
+         regarding this Web Descriptor File.
+   </description>
+   
+   <servlet>
+    <servlet-name>myservlet</servlet-name>
+    <servlet-class>
+        com.vaadin.terminal.gwt.server.ApplicationServlet
+    </servlet-class>
+    <init-param>
+      <param-name>application</param-name>
+      <param-value>org.syfsyf.search.webgui.Application</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>myservlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+ </servlet-mapping>
+   
+   
+</web-app>
