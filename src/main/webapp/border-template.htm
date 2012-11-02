@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Search - $title</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="$context/css/blueprint/screen.css"
+	type="text/css" media="screen, projection">
+<link rel="stylesheet" href="$context/css/blueprint/print.css"
+	type="text/css" media="print">
+<!--[if IE]>
+<link rel="stylesheet" href="$context/css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+<!--  
+<link rel="stylesheet" type="text/css" href="$context/css/style.css" title="Style"/>
+-->
+</head>
+<body>
+	<div class="container">
+		<div class="span-24">
+			<h2>$title</h2>
+			
+			#foreach($link in $mainPageLinks)
+				$link
+			#end
+			
+			#set($flashItems=$session.flash)
+			#foreach($flash in $flashItems)
+			<p class="$flash.type">$flash.message</p>
+			#end
+			
+			
+			#parse($path)
+		</div>
+	</div>
+</body>
+
+</html>
