@@ -9,6 +9,8 @@ public class SearchPanel extends VerticalLayout{
 	
 	public SearchPanel() {
 		
+		setMargin(true);
+		setSpacing(true);
 		addComponent(new Label("query"));
 		
 		TextField query=new TextField();

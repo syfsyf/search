@@ -2,6 +2,7 @@ package org.syfsyf.search;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionBuilder;
@@ -25,9 +26,8 @@ public class Main {
 		if(config==null){
 			try {
 				config=ConfigManager.loadDefaultConfig();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (IOException e) {
+				LOGGER.error(e);
 				throw new RuntimeException(e);
 			}
 		}
@@ -44,14 +44,7 @@ public class Main {
 		
 		BasicConfigurator.configure();
 		config=ConfigManager.loadDefaultConfig();
-		System.out.println("config:"+config);
-		
 		ConfigManager.saveDefualtConfig(config);
-	
-		
-		Gui gui=new Gui();
-		gui.start();
-		
 	}
 
 }
