@@ -1,0 +1,9 @@
+@import url(../runo/styles.css);
+
+
+div.v-tree-node-caption:hover span{
+	
+	background-color:gray;
+	color: white;
+	
+}

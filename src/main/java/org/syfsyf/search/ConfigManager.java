@@ -2,10 +2,8 @@ package org.syfsyf.search;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
@@ -134,5 +132,11 @@ public class ConfigManager {
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static File indexesDir()
+	{
+		File file = new File(defaultAppDir(),"indexes");
+		return file;
 	}
 }

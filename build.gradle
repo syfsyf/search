@@ -3,7 +3,7 @@ import javax.swing.plaf.metal.MetalBorders.WarningDialogBorder;
 defaultTasks 'classes', 'war'
 
 
-apply plugin: 'jetty'
+//apply plugin: 'jetty'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'war'

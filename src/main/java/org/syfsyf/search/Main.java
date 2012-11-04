@@ -1,12 +1,7 @@
 package org.syfsyf.search;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.OptionBuilder;
-import org.apache.commons.cli.Options;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.syfsyf.search.model.Config;

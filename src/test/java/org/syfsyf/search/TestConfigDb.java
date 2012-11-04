@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.syfsyf.search.model.Dir;
 import org.syfsyf.search.model.Index;
@@ -29,6 +30,8 @@ public class TestConfigDb extends BaseTest{
 		Dao<Dir, Integer> dirDao = cfg.dao(Dir.class);
 		dirDao.delete(dirDao.queryForAll());
 		
+		
+		
 		Dir dir=new Dir();
 		dir.setParent(test);
 		dir.setPath("hello");
@@ -37,6 +40,8 @@ public class TestConfigDb extends BaseTest{
 		
 		dao.refresh(test);
 		assertEquals(1, test.getDirs().size());
+		
+		
 		
 		
 	}

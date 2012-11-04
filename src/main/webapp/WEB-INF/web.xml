@@ -4,70 +4,72 @@
     "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-   <!-- General description of your web application -->
-   <display-name>org.syfsyf.search - Webapp</display-name>
-      <description>
-         Describe the org.syfsyf.search Webapp here.
-         d@example.com
+	<!-- General description of your web application -->
+	<display-name>org.syfsyf.search - Webapp</display-name>
+	<description>
+		Describe the org.syfsyf.search Webapp here.
+		d@example.com
 
-         See http://tomcat.apache.org/tomcat-6.0-doc/appdev/web.xml.txt for more information
-         regarding this Web Descriptor File.
-   </description>
- 
-   <context-param>
-    	<param-name>db.url</param-name>
-    	<param-value>jdbc:h2:~/.org.syfysyf.search/config/db</param-value>
-   </context-param>
- 
-   <context-param>
-    <param-name>db.user</param-name>
-    <param-value>sa</param-value>
-</context-param>
-<context-param>
-    <param-name>db.password</param-name>
-    <param-value>sa</param-value>
-</context-param>
-   
-   <listener>
-    <listener-class>org.h2.server.web.DbStarter</listener-class>
-   </listener>
-   
- 
-   
-   
-    <servlet>
-    <servlet-name>ClickServlet</servlet-name>
-    <servlet-class>org.apache.click.ClickServlet</servlet-class>
-    <load-on-startup>0</load-on-startup>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>ClickServlet</servlet-name>
-    <url-pattern>*.htm</url-pattern>
-  </servlet-mapping>
-  
-  <welcome-file-list>
-    <welcome-file>redirect.html</welcome-file>
-  </welcome-file-list>
-   
-   <!--  
-   <servlet>
-    <servlet-name>myservlet</servlet-name>
-    <servlet-class>
-        com.vaadin.terminal.gwt.server.ApplicationServlet
-    </servlet-class>
-    <init-param>
-      <param-name>application</param-name>
-      <param-value>org.syfsyf.search.webgui.Application</param-value>
-    </init-param>
-  </servlet>
+		See http://tomcat.apache.org/tomcat-6.0-doc/appdev/web.xml.txt for
+		more
+		information
+		regarding this Web Descriptor File.
+	</description>
 
-  <servlet-mapping>
-    <servlet-name>myservlet</servlet-name>
-    <url-pattern>/*</url-pattern>
- </servlet-mapping>
-   -->
-   
-  
-   
+	<context-param>
+		<param-name>db.url</param-name>
+		<param-value>jdbc:h2:~/.org.syfysyf.search/config/db</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>db.user</param-name>
+		<param-value>sa</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db.password</param-name>
+		<param-value>sa</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.h2.server.web.DbStarter</listener-class>
+	</listener>
+
+
+
+	<!--  
+	<servlet>
+		<servlet-name>ClickServlet</servlet-name>
+		<servlet-class>org.apache.click.ClickServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+	-->
+
+	<servlet>
+		<servlet-name>myservlet</servlet-name>
+		<servlet-class> com.vaadin.terminal.gwt.server.ApplicationServlet
+		</servlet-class>
+		<init-param>
+			<param-name>application</param-name>
+			<param-value>org.syfsyf.search.webgui.Application</param-value>
+		</init-param>
+	</servlet>
+	
+	<!--  	
+	<servlet-mapping>
+		<servlet-name>ClickServlet</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	-->
+	
+	
+	<servlet-mapping>
+		<servlet-name>myservlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>redirect.html</welcome-file>
+	</welcome-file-list>
+
 </web-app>

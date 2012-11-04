@@ -7,7 +7,7 @@ public class Dir extends BaseModel{
 	@DatabaseField(foreign=true)
 	private Index parent;
 	
-	@DatabaseField(unique=true)
+	@DatabaseField
 	private String path;
 	
 	public Index getParent() {
@@ -21,5 +21,10 @@ public class Dir extends BaseModel{
 	}
 	public void setPath(String path) {
 		this.path = path;
+	}
+	@Override
+	public String toString() {
+		
+		return getPath();
 	}
 }
