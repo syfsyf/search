@@ -46,8 +46,6 @@ dependencies {
 			'com.thoughtworks.xstream:xstream:1.4.3',
 			'com.vaadin:vaadin:6.8.4',
 			'org.vaadin.addon:confirmdialog:1.2.1',
-			'org.apache.click:click-nodeps:2.3.0',
-			'org.apache.click:click-extras:2.3.0',
 			//'commons-cli:commons-cli:1.2',
 			'com.j256.ormlite:ormlite-core:4.42',
 			'com.j256.ormlite:ormlite-jdbc:4.42',

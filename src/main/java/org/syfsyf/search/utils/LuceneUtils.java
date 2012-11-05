@@ -1,4 +1,4 @@
-package org.syfsyf.search.sandbox;
+package org.syfsyf.search.utils;
 
 import java.io.IOException;
 import java.util.List;

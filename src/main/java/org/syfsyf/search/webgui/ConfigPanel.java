@@ -17,7 +17,6 @@ import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.util.BeanItem;
 import com.vaadin.event.Action;
-import com.vaadin.event.ItemClickEvent;
 import com.vaadin.terminal.Resource;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.AbstractSelect;
@@ -136,24 +135,11 @@ public class ConfigPanel extends VerticalLayout implements
 		configTree.setImmediate(true);
 		configTree.setSelectable(true);
 		configTree.addActionHandler(this);
-		// configTree.sets
-		configTree.addListener(new ItemClickEvent.ItemClickListener() {
-
-			public void itemClick(ItemClickEvent event) {
-				System.out.println("click:" + event);
-
-			}
-		});
-		// /configTree.add
-		// configTree.setItemCaptionPropertyId(PROPERTY_NAME);
-		// configTree.setItemCaptionMde()
-		// configTree.requestRepaint();
 		return configTree;
 	}
 
 	public void valueChange(ValueChangeEvent event) {
 
-		System.out.println("valueChange:" + event);
 		Object val = event.getProperty().getValue();
 		if (indexesNode.equals(val)) {
 			onIndexesNodeSelected();
@@ -267,7 +253,7 @@ public class ConfigPanel extends VerticalLayout implements
 	}
 
 	public void handleAction(Action action, Object sender, Object target) {
-		System.out.println("action:" + action);
+
 		try {
 			if (action == ACTION_ADD_INDEX) {
 				addIndex();
@@ -382,11 +368,12 @@ public class ConfigPanel extends VerticalLayout implements
 							try {
 								ConfigManager.getConfgDb().dao(Index.class)
 										.delete(target);
-								Collection childs = configTree.getChildren(target);
-								for(Object o:childs){
+								Collection childs = configTree
+										.getChildren(target);
+								for (Object o : childs) {
 									configTree.removeItem(o);
 								}
-								
+
 								configTree.removeItem(target);
 								configTree.requestRepaint();
 								Application.trayMessage("dir deleted");

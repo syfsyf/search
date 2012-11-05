@@ -16,8 +16,9 @@ public class FileIndexer implements Indexer{
 	
 	public static final String FILE_NAME="file.name";
 	public static final String FILE_PATH="file.path";
-	public static final String FILE_SIZE="file.size";
-	public static final String FILE_DATE="file.date";
+	public static final String FILE_SIZE="file.size.l";
+	public static final String FILE_DATE="file.date.dt";
+	public static final String FILE_CONTENT="file.content";
 	/**
 	 * 2 values 'd' - directory 'f'- file
 	 */
@@ -59,21 +60,26 @@ public class FileIndexer implements Indexer{
 		LOGGER.debug("relativePath:"+path);
 		field=new Field(FILE_PATH,path,Field.Store.YES,Field.Index.ANALYZED);
 		document.add(field);
-		
-		
-		
+			
 		String type="d";
 		
 		if(file.isFile()){
 			long fileSize = file.length();
 			document.add(new NumericField(FILE_SIZE).setLongValue(fileSize));
 			type="f";
+			
+			String content = FileUtils.readFileToString(file);
+			field=new Field(FILE_CONTENT,content,Field.Store.NO,Field.Index.ANALYZED);
+			document.add(field);
+			
 		}
+		
 		field=new Field(FILE_TYPE,type,Field.Store.YES,Field.Index.ANALYZED);
 		document.add(field);
-		
-		
+	
 		document.add(new NumericField(FILE_DATE).setLongValue(file.lastModified()));
+		
+		
 		
 		
 	}

@@ -36,14 +36,7 @@
 
 
 
-	<!--  
-	<servlet>
-		<servlet-name>ClickServlet</servlet-name>
-		<servlet-class>org.apache.click.ClickServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
-	</servlet>
-
-	-->
+	
 
 	<servlet>
 		<servlet-name>myservlet</servlet-name>
@@ -55,12 +48,6 @@
 		</init-param>
 	</servlet>
 	
-	<!--  	
-	<servlet-mapping>
-		<servlet-name>ClickServlet</servlet-name>
-		<url-pattern>*.htm</url-pattern>
-	</servlet-mapping>
-	-->
 	
 	
 	<servlet-mapping>
@@ -68,8 +55,6 @@
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 
-	<welcome-file-list>
-		<welcome-file>redirect.html</welcome-file>
-	</welcome-file-list>
+	
 
 </web-app>

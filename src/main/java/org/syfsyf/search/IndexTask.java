@@ -3,13 +3,8 @@ package org.syfsyf.search;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.tools.FileObject;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -33,7 +28,7 @@ public class IndexTask {
 	private Index index;
 	
 	
-	public static final String SEARCHER_DIR_ID="srch.dir_id";
+	public static final String SEARCHER_DIR_ID="srch.dir.l";
 	
 	private SimpleFSDirectory directory;
 	private StandardAnalyzer analyzer;
@@ -41,13 +36,10 @@ public class IndexTask {
 	private List<Indexer> indexers=new ArrayList<Indexer>();
 	private TaskStatistics statistics=new TaskStatistics();
 	
-	
-
 	public IndexTask(Index index) {
 		super();
 		this.index = index;
 		indexers.add(new FileIndexer());
-		
 	}
 
 	public void run() throws IOException {
