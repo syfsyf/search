@@ -32,14 +32,14 @@ import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
-public class ConfigPanel extends VerticalLayout implements
+public class ConfigureIndexesPanel extends VerticalLayout implements
 		Property.ValueChangeListener, Action.Handler {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = Logger.getLogger(ConfigPanel.class);
+	private static final Logger LOGGER = Logger.getLogger(ConfigureIndexesPanel.class);
 	public static final String PROPERTY_NAME = "name";
 	public static final String PROPERTY_ICON = "icon";
 
@@ -73,7 +73,7 @@ public class ConfigPanel extends VerticalLayout implements
 
 	}
 
-	public ConfigPanel() throws Exception {
+	public ConfigureIndexesPanel() throws Exception {
 
 		setSpacing(true);
 		setMargin(true);

@@ -24,7 +24,8 @@ public class Application extends com.vaadin.Application {
 			tabSheet.setHeight("650px");
 			mainWindow.addComponent(tabSheet);
 
-			Tab tabConfig = tabSheet.addTab(new ConfigPanel(), "Config");
+			Tab tabSettings = tabSheet.addTab(new SettingsPanel(), "Settings");
+			//Tab tabConfig = tabSheet.addTab(new ConfigureIndexesPanel(), "Config");
 			Tab tabSearch = tabSheet.addTab(new SearchPanel(), "Search");
 
 		} catch (Exception e) {
