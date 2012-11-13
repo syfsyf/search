@@ -1,0 +1,67 @@
+<window title="Config" border="normal">
+	<zscript>
+	<![CDATA[
+	import org.syfsyf.search.ConfigManager;
+	import org.syfsyf.search.model.*;
+	import com.j256.ormlite.dao.Dao;
+	
+	
+	ListModelList indexes = new ListModelList();
+	ListModelList dirs = new ListModelList();
+	Index selected;
+	
+	void updateModels() {
+		Dao dao = ConfigManager.getConfgDb().dao(Index.class);
+		indexes.removeAll(indexes);
+		indexes.addAll(dao.queryForAll());
+	}
+	void onSelectIndex()
+	{
+		Index idx=indexes.get(indexesList.getSelectedIndex());
+		selected=idx;
+		indexName.setValue(idx.getName());
+		dirs.removeAll(dirs);
+		dirs.addAll(idx.getDirs());
+		
+		System.out.println("selected:"+idx);
+		
+	}
+	updateModels();
+	
+]]>
+</zscript>
+	<panel>
+		<caption label="Indexes"></caption>
+		<panelchildren>
+			<hbox width="100%">
+			
+			<listbox width="300px" id="indexesList" model="${indexes}" onSelect="onSelectIndex()">
+				<listhead>
+					<listheader label="name" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.name}"></listcell>
+					</listitem>
+				</template>
+			</listbox>
+			<panel>
+			<panelchildren>
+			<label value="Name"/> <textbox id="indexName" type="text"></textbox>
+			<listbox width="500px" id="indexesList1" model="${dirs}">
+				<listhead>
+					<listheader label="path" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.path}">
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+			</panelchildren>
+			</panel>
+			</hbox>
+		</panelchildren>
+	</panel>
+</window>

@@ -1,10 +1,12 @@
 package org.syfsyf.search.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.j256.ormlite.field.DatabaseField;
 
 public class Dir extends BaseModel{
 	
 	@DatabaseField(foreign=true)
+	@JsonIgnore
 	private Index parent;
 	
 	@DatabaseField

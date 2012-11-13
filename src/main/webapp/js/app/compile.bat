@@ -1,0 +1,1 @@
+coffee -w -c search.coffee config.coffee settings.coffee

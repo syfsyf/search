@@ -1,0 +1,48 @@
+#set($page_title='Config')
+#set($scripts=['js/app/config.js'])
+#literal()
+
+<div class="grid-2">
+	<h4>Indexes</h4>
+	<ul class="list" data-bind="foreach:list">
+		<li>
+			<a data-bind="text:name,click:$root.selectIndex" href="#"></a>
+		</li>
+	</ul>
+</div>
+<div class="grid-10" id="dirsList" data-bind="with:selectedIndex">
+	<fieldset>
+		<legend>Index</legend>
+		<input type="text" data-bind="value:name"></input>
+		
+		<fieldset>
+			<legend>Dirs</legend>
+			<table>
+				<thead>
+					<tr>
+						<th>path</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach:dirs">
+					<tr>
+						<td>
+							<input type="text" data-bind="value:path"/>
+						</td>
+						<td>
+							<button data-bind="click:$root.deleteDir">delete</button>
+						</td>	
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>New Dir</legend>
+			<input type="text" data-bind="value:$root.newDir.path"/>
+			<button data-bind="click:$root.addNewDir">add</button>
+		</fieldset>
+		<button data-bind="click:$root.saveIndex">save</button>
+	</fieldset>
+	
+</div>
+#end

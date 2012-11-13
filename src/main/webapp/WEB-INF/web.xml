@@ -30,31 +30,94 @@
 		<param-value>sa</param-value>
 	</context-param>
 
+	<context-param>
+		<param-name>srConfigFilesPattern</param-name>
+		<param-value>SR.*.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.syfsyf.search.utils.Log4InitListener</listener-class>
+	</listener>
 	<listener>
 		<listener-class>org.h2.server.web.DbStarter</listener-class>
 	</listener>
-
-
-
-	
+	<listener>
+        <listener-class>org.zkoss.zk.ui.http.HttpSessionListener23</listener-class>
+    </listener>
 
 	<servlet>
-		<servlet-name>myservlet</servlet-name>
-		<servlet-class> com.vaadin.terminal.gwt.server.ApplicationServlet
-		</servlet-class>
-		<init-param>
-			<param-name>application</param-name>
-			<param-value>org.syfsyf.search.webgui.Application</param-value>
-		</init-param>
+		<servlet-name>velocity</servlet-name>
+		<servlet-class>org.apache.velocity.tools.view.servlet.VelocityLayoutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>immediate_js</servlet-name>
+		<servlet-class>org.syfsyf.search.utils.ImmiediateJSServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SearchServiceServlet</servlet-name>
+		<servlet-class>org.syfsyf.search.jrpc.SearchServiceServlet</servlet-class>
 	</servlet>
 	
-	
-	
+	<servlet>
+        <servlet-name>zkLoader</servlet-name>
+        <servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
+        <init-param>
+            <param-name>update-uri</param-name>
+            <param-value>/zkau</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>auEngine</servlet-name>
+        <servlet-class>org.zkoss.zk.au.http.DHtmlUpdateServlet</servlet-class>
+    </servlet>
+
+
+	 <servlet-mapping>
+        <servlet-name>zkLoader</servlet-name>
+        <url-pattern>*.zul</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>zkLoader</servlet-name>
+        <url-pattern>*.zhtml</url-pattern>
+    </servlet-mapping>
+ 
+    <!-- Optional. Uncomment it if you want to use richlets.
+    <servlet-mapping>
+        <servlet-name>zkLoader</servlet-name>
+        <url-pattern>/zk/*</url-pattern>
+    </servlet-mapping>
+    -->
+    <servlet-mapping>
+        <servlet-name>auEngine</servlet-name>
+        <url-pattern>/zkau/*</url-pattern>
+    </servlet-mapping>
+
 	<servlet-mapping>
-		<servlet-name>myservlet</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<servlet-name>immediate_js</servlet-name>
+		<url-pattern>/js/app/*</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>SearchServiceServlet</servlet-name>
+		<url-pattern>/rpc/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>velocity</servlet-name>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
 	
+	 <welcome-file-list>
+        <welcome-file>index.zul</welcome-file>
+        <welcome-file>index.zhtml</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+    </welcome-file-list>
+
 
 </web-app>
